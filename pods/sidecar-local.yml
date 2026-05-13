@@ -15,18 +15,18 @@ spec:
     - name: html
       mountPath: /usr/share/nginx/
   - name: ctr-sync
-    image: k8s.gcr.io/git-sync:v3.1.6
+    image: registry.k8s.io/git-sync/git-sync:v4.4.1
     volumeMounts:
     - name: html
-      mountPath: /tmp/git
+      mountPath: /git
     env:
-    - name: GIT_SYNC_REPO
-      value: https://github.com/nigelpoulton/ps-sidecar.git
-    - name: GIT_SYNC_BRANCH
+    - name: GITSYNC_REPO
+      value: https://github.com/Nashema007/ps-sidecar.git
+    - name: GITSYNC_REF
       value: master
-    - name: GIT_SYNC_DEPTH
+    - name: GITSYNC_DEPTH
       value: "1"
-    - name: GIT_SYNC_DEST
+    - name: GITSYNC_LINK
       value: "html"
   volumes:
   - name: html
